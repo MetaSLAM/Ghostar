@@ -15,6 +15,7 @@ AutoMerge is an autonamous multi-agent map merging system, which can provide off
 
 === System Structure
 
+image::doc/images/MetaUnion.png["MetaUnion", width=850px]
 This is an example file structure of a dataset in the kapture format.
 
 [source,txt]
@@ -43,8 +44,6 @@ AutoMerge                  # Dataset root path
 ----
 
 == Software
-
-image::doc/images/MetaUnion.png["MetaUnion", width=850px]
 
 
 === Configure Datasets
