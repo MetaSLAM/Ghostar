@@ -4,7 +4,7 @@
 :toclevels: 2
 
 
-image::doc/images/automerge.png["AUTOMERGE", width=800px]
+image::doc/images/MetaUnion.png["MetaUnion", width=850px]
 
 toc::[]
 
