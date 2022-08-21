@@ -4,7 +4,7 @@
 :toclevels: 2
 
 
-image::doc/images/MetaUnion.png["MetaUnion", width=850px]
+image::doc/images/UnionLogo.png["UnionLogo", width=850px]
 
 toc::[]
 
@@ -44,7 +44,8 @@ AutoMerge                  # Dataset root path
 
 == Software
 
-image::doc/images/system.png["System", width=800px]
+image::doc/images/MetaUnion.png["MetaUnion", width=850px]
+
 
 === Configure Datasets
 
