@@ -1,0 +1,4 @@
+[submodule "ros_ws/src/LIO-LCD"]
+	path = ros_ws/src/LIO-LCD
+	url = https://github.com/SLAM-BOX/LIO-LCD
+	branch = lcd

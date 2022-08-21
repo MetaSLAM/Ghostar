@@ -1,0 +1,134 @@
+:sectnums:
+:sectnumlevels: 1
+:toc: macro
+:toclevels: 2
+
+
+image::doc/images/automerge.png["AUTOMERGE", width=800px]
+
+toc::[]
+
+
+== Overview
+
+AutoMerge is an autonamous multi-agent map merging system, which can provide offline matching for city-scale environments, and onling map merging for multi-agent systems.
+
+=== System Structure
+
+This is an example file structure of a dataset in the kapture format.
+
+[source,txt]
+----
+AutoMerge                  # Dataset root path
+├─ data/                   # Directory to store datasets, training model and results
+│  ├─download.sh           # Script for data and model downloading
+│  config/                 
+│  ├─dataset               # Configure for datasets
+│  ├─network               # Configure for networks
+├─ tests                   # Testing code
+│  ├─test.py               # python demo code
+│  └─demo.ipynb            # jupyter demo code
+├─ src/                    
+│  └─automerge/            # Main source files
+│     ├─dataloader         # Dataloader 
+│     ├─detection          # Place Recognition for Loop Closure Detection
+│     ├─merge              # Backend Map Merging
+│     ├─model              # Place Descriptors
+│     ├─utils              # Utils, include data processing, evalaution metric, etc.
+│     └─__init__.py        # init file
+├─ doc/                    # Documentation
+├─ pyproject.toml          
+├─ requirements.txt
+└─ setup.py
+----
+
+== Software
+
+image::doc/images/system.png["System", width=800px]
+
+=== Configure Datasets
+
+Download Pittsburgh datasets for online map merging.
+https://drive.google.com/drive/folders/19AK8jc6yZpKN6Ub_ILGJaceZixpbwKcV?usp=sharing
+
+Download pre-trained models and set path
+[source,bash]
+----
+cd data && sh download.sh
+echo "export ROS_IP='172.17.0.1' " >> ~/.bashrc
+echo "export MASTER_IP='172.17.0.2' " >> ~/.bashrc
+echo "export ROS_MASTER_URI=http://$MASTER_IP:11311/ " >> ~/.bashrc
+echo "export BAG_PATH='$PATH_TO_PITT_ROS_BAGS' " >> ~/.bashrc
+source ~/.bashrc
+----
+And the following difference matrix in the `data/results/`. Then set `ROS_IP` to enable communication between docker and host computer.
+Finally, export dataset path, and replace `PATH_TO_PITT_ROS_BAGS` to the Pittusbrugh rosbags.
+
+== Offline Merging
+
+[source,yaml]
+----
+DATA:
+    OFFLINE_LENGTH: 100 # Set for desire testing length
+----
+Use `OFFLINE_LENGTH` to set the length for each agent.
+
+[source,bash]
+----
+python src/offline_merging.py
+----
+
+In the current `global_rough_align` step, we will use spectral clustering method to divide agents into different groups based on their connections.
+
+=== Merge 50 agents with 500m trajectories
+
+image::doc/images/merge/Merge_500.png["M_500", width=800px]
+
+=== Merge 50 agents with 1000m trajectories
+
+image::doc/images/merge/Merge_1000.png["M_1000", width=800px]
+
+=== Merge 50 agents with all trajectories
+
+image::doc/images/merge/Merged.png["M_all", width=800px]
+
+== Online Merging
+
+=== Start Docker
+
+[source,bash]
+----
+cd AUTOMERGE
+sh doc/bin/start_docker.sh
+sh tmux_run.sh
+----
+
+This will enable the `metaslam/automerge` docker image, within which we already enabled the LiDAR odometry and AutoMerge Server. 
+The `tmux_run.sh` will automatically trigger `online_detector.py` and `online_merging.py`.
+Note, we also need to trigger `online_visualizer.py` for online visualization (in progress).
+
+=== Start Individual Agent
+
+We create a loop scripts, to trigger each agent in the continuous order. Within the docker, use the following command:
+
+[source,bash]
+----
+cd /root/bin
+sh demo_loop.sh
+----
+
+=== Visualization
+
+Outside the docker, subscibe `/global_map` with `world` frame with `rviz`. Different un-merged maps will be visualized along the z-axis (`index*30`).
+
+image::doc/images/online.jpeg["Online", width=800px]
+
+== Tutorial
+
+See the demo tutorial in the link:tests/demo.ipynb[jupyter] and link:tests/test.py[python] version.
+
+== TODO List
+
+* Use Waymo datasets
+
+* Setup Lgsvl Simulation
