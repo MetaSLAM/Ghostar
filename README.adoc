@@ -40,18 +40,17 @@ Please keep in mind, *META_AUTOMERGE*, *META_EXPLORER* and *META_SIM* indicate t
 
 image::doc/images/AutoMerge.png["System", width=800px]
 
-Within AutoMerge, all the agent
+AutoMerge can provide an automatic data-association for agents without any knowledge about initial position and each others.
 
-IMPORTANT: Important
-
-NOTE: Note
-
-==== TODOLIST
+.TODO List for AutoMerge
+[NOTE]
+====
 [options="interactive"]
 * [ ] [red yellow-background]#*Onine SubMap Generation*#
 * [ ] [red yellow-background]#*Onine Feature Evaluation*#
 * [ ] [red yellow-background]#*Onine Cache Checking*#
 * [ ] [red yellow-background]#*Onine Position Estimation*#
+====
 
 === MrExplorer
 
