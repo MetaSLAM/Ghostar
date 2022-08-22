@@ -22,6 +22,20 @@ image::doc/images/MetaUnion.png["MetaUnion", width=850px]
 MetaUnion mainly contains three key modules within the framework: *AutoMerge*, *MrExplorer*, and *BioSLAM*. In the begining, each agent is randomly assigned at a new envionrment, and has neither information about other agents' localization, nor place recognition ability for the new areas, and conduct single-agent exploration individually.
 When the trajectries of different agents have overlaps, *AutoMerge* module can automatically detect the data association between agents, and estimate the relative positions for them. Based on the relative transformation, *MrExplorer* can divide the agent into different groups based on their connections, and apply hierarichal exploration for individual agent. Parallel with the above procedure, *BioSLAM* constructs a dual-memory system to memorize the large-scale and long-duration place features. As the MAS system explorer to bigger area, their cooperation ability and place recognition ability are improved gradually.
 
+== Software
+
+To quickly install all the necessary softwares for MetaUnion, please following the instructions,
+
+[source,bash]
+----
+
+git clone --recurse-submodules -j8 https://github.com/MetaSLAM/MetaUnion.git
+sh 
+sh tmux_run.sh
+----
+
+=== AutoMerge
+
 [source,txt]
 ----
 AutoMerge                  # Dataset root path
@@ -47,13 +61,59 @@ AutoMerge                  # Dataset root path
 └─ setup.py
 ----
 
-== Software
-
-=== AutoMerge
-
 === MrExplorer
 
+[source,txt]
+----
+AutoMerge                  # Dataset root path
+├─ data/                   # Directory to store datasets, training model and results
+│  ├─download.sh           # Script for data and model downloading
+│  config/                 
+│  ├─dataset               # Configure for datasets
+│  ├─network               # Configure for networks
+├─ tests                   # Testing code
+│  ├─test.py               # python demo code
+│  └─demo.ipynb            # jupyter demo code
+├─ src/                    
+│  └─automerge/            # Main source files
+│     ├─dataloader         # Dataloader 
+│     ├─detection          # Place Recognition for Loop Closure Detection
+│     ├─merge              # Backend Map Merging
+│     ├─model              # Place Descriptors
+│     ├─utils              # Utils, include data processing, evalaution metric, etc.
+│     └─__init__.py        # init file
+├─ doc/                    # Documentation
+├─ pyproject.toml          
+├─ requirements.txt
+└─ setup.py
+----
+
 === BioSLAM
+
+[source,txt]
+----
+AutoMerge                  # Dataset root path
+├─ data/                   # Directory to store datasets, training model and results
+│  ├─download.sh           # Script for data and model downloading
+│  config/                 
+│  ├─dataset               # Configure for datasets
+│  ├─network               # Configure for networks
+├─ tests                   # Testing code
+│  ├─test.py               # python demo code
+│  └─demo.ipynb            # jupyter demo code
+├─ src/                    
+│  └─automerge/            # Main source files
+│     ├─dataloader         # Dataloader 
+│     ├─detection          # Place Recognition for Loop Closure Detection
+│     ├─merge              # Backend Map Merging
+│     ├─model              # Place Descriptors
+│     ├─utils              # Utils, include data processing, evalaution metric, etc.
+│     └─__init__.py        # init file
+├─ doc/                    # Documentation
+├─ pyproject.toml          
+├─ requirements.txt
+└─ setup.py
+----
 
 == Multi-Agent Localization
 
