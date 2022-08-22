@@ -11,13 +11,14 @@ toc::[]
 In traditional Multi-Agent Exploration (MAE) methods, all agents start in the same place and start with a shared coordinate system; and once the relative transformation missed due to localization failures, the MAE system will be very fregial and easily crash.
 This framework provide a novel Autonomous Exploration paradigm, all the agents can start in the darkness, without knowing anything about *where they are*, *where each other are*, and *what the environment looks like*. As the MAE system explorer individually, *MetaUnion* helps to find associated overlaps among different agents and solve the above three challenges gradually; and most importantly, *MetaUnion* can incrementally update the feature learning ability for new observed areas. In a summary, our key contributions includes:
 
-* *Automatic Multi-Agent Cooperated Localization without Initial Information;*
-* *Multi-Agent Hybrid Exploration Policy with Active Grouping;*
-* *Lifelong Place Feature Leanring Ability with Dual Memory System.*
+* *Multi-Agent Localiztion without Initial Transformation;*
+* *Multi-Agent Hierarchical Exploration;*
+* *Incremental Lifelong Localization.*
 
 === System Structure
 
 image::doc/images/MetaUnion.png["MetaUnion", width=850px]
+
 This is an example file structure of a dataset in the kapture format.
 
 [source,txt]
