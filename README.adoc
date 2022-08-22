@@ -8,8 +8,7 @@ image::doc/images/UnionLogo.png["UnionLogo", width=800px]
 toc::[]
 
 == Overview
-In traditional Multi-Agent Exploration (MAE) methods, all agents start in the same place and start with a shared coordinate system; and once the relative transformation missed due to localization failures, the MAE system will be very fregial and easily crash.
-This framework provide a novel Autonomous Exploration paradigm, all the agents can start in the darkness, without knowing anything about *where they are*, *where each other are*, and *what the environment looks like*. As the MAE system explorer individually, *MetaUnion* helps to find associated overlaps among different agents and solve the above three challenges gradually; and most importantly, *MetaUnion* can incrementally update the feature learning ability for new observed areas. In a summary, our key contributions includes:
+In traditional Multi-Agent Exploration (MAE) methods, all agents start in the same place and start with a shared coordinate system; and once the relative transformation missed due to localization failures, the MAE system will be very fregial and easily crash. This framework provide a novel Autonomous Exploration paradigm, all the agents can start in the darkness, without knowing anything about *where they are*, *where each other are*, and *what the environment looks like*. As the MAE system explorer individually, *MetaUnion* helps to find associated overlaps among different agents and solve the above three challenges gradually; and most importantly, *MetaUnion* can incrementally update the feature learning ability for new observed areas. In a summary, our key contributions includes:
 
 * *Multi-Agent Localiztion without Initial Transformation;*
 * *Multi-Agent Hierarchical Exploration;*
@@ -35,9 +34,20 @@ echo "export META_EXPLORER=$MetaUnion/stack/MrExplorer" >> ~/.bashrc
 echo "export META_SIM=$MetaUnion/stack/Multi-Agent-Simulation" >> ~/.bashrc
 source ~/.bashrc
 ----
-Please keep in mind, *META_AUTOMERGE*, *META_EXPLORER* and *META_SIM* indicate the *PATH* env for the three key modules.
+Please keep in mind, *META_AUTOMERGE*, *META_EXPLORER* and *META_SIM* indicate the *PATH* env for the three key modules. In the following sections, we will investigate the details of each module.
 
 === AutoMerge
+
+image::doc/images/AutoMerge.png["System", width=800px]
+
+Within AutoMerge, all the agent
+
+==== TODOLIST
+[options="interactive"]
+* [ ] [red yellow-background]#*Onine SubMap Generation*#
+* [ ] [red yellow-background]#*Onine Feature Evaluation*#
+* [ ] [red yellow-background]#*Onine Cache Checking*#
+* [ ] [red yellow-background]#*Onine Position Estimation*#
 
 === MrExplorer
 
@@ -102,6 +112,3 @@ Finally, export dataset path, and replace `PATH_TO_PITT_ROS_BAGS` to the Pittusb
 
 
 == TODO List
-
-* Use Waymo datasets
-* Setup Lgsvl Simulation
