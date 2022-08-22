@@ -45,14 +45,12 @@ AutoMerge can provide an automatic data-association for agents without any knowl
 .TODO List for AutoMerge
 [NOTE]
 ====
-
-====
-
 [options="interactive"]
-* [ ] [red yellow-background]#*Onine SubMap Generation*#
-* [ ] [red yellow-background]#*Onine Feature Evaluation*#
-* [ ] [red yellow-background]#*Onine Cache Checking*#
-* [ ] [red yellow-background]#*Onine Position Estimation*#
+- [ ] [red yellow-background]#*Onine SubMap Generation*#
+- [ ] [red yellow-background]#*Onine Feature Evaluation*#
+- [ ] [red yellow-background]#*Onine Cache Checking*#
+- [ ] [red yellow-background]#*Onine Position Estimation*#
+====
 
 === MrExplorer
 
