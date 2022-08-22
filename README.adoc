@@ -42,6 +42,10 @@ image::doc/images/AutoMerge.png["System", width=800px]
 
 Within AutoMerge, all the agent
 
+IMPORTANT: Important
+
+NOTE: Note
+
 ==== TODOLIST
 [options="interactive"]
 * [ ] [red yellow-background]#*Onine SubMap Generation*#
