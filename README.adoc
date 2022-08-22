@@ -19,7 +19,8 @@ This framework provide a novel Autonomous Exploration paradigm, all the agents c
 
 image::doc/images/MetaUnion.png["MetaUnion", width=850px]
 
-This is an example file structure of a dataset in the kapture format.
+MetaUnion mainly contains three key modules within the framework: *AutoMerge*, *MrExplorer*, and *BioSLAM*. In the begining, each agent is randomly assigned at a new envionrment, and has neither information about other agents' localization, nor place recognition ability for the new areas, and conduct single-agent exploration individually.
+When the trajectries of different agents have overlaps, *AutoMerge* module can automatically detect the data association between agents, and estimate the relative positions for them. Based on the relative transformation, *MrExplorer* can divide the agent into different groups based on their connections, and apply hierarichal exploration for individual agent. Parallel with the above procedure, *BioSLAM* constructs a dual-memory system to memorize the large-scale and long-duration place features. As the MAS system explorer to bigger area, their cooperation ability and place recognition ability are improved gradually.
 
 [source,txt]
 ----
