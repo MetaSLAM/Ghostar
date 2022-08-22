@@ -4,7 +4,7 @@
 :toclevels: 2
 
 
-image::doc/images/UnionLogo.png["UnionLogo", width=700px]
+image::doc/images/UnionLogo.png["UnionLogo", width=800px]
 
 toc::[]
 
