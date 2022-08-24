@@ -64,7 +64,7 @@ AutoMerge can provide an automatic data-association for agents without any knowl
 
 === MrExplorer
 
-image::doc/images/AutoMerge.png["System", width=800px]
+image::doc/images/MrExplorer.png["System", width=800px]
 
 Since all agents begin from unknown darkness area within an given map, each agent are starting from a local exploration policy based on its observations. And based on the *AutoMerge* module, small group agents will find their relative transformations, then such agents are grouped into one set, and the single agent exploration policy are transfermed into multi-agent exploration policy. Gradually, all the agents are converted into one group. This hierarchical strategy help crowd agents quickly understand their coopeartion status with each others, and can balance the exploration efficiency and robustness without any initial position and relative transformation information.
 
@@ -89,7 +89,7 @@ Since all agents begin from unknown darkness area within an given map, each agen
 
 === BioSLAM
 
-image::doc/images/AutoMerge.png["System", width=800px]
+image::doc/images/BioSLAM.png["System", width=800px]
 
 == Multi-Agent Localization
 
