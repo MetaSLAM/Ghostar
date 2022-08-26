@@ -83,13 +83,33 @@ Since all agents begin from unknown darkness area within an given map, each agen
 [options="interactive"]
 - [ ] [red yellow-background]#*Online Submap Merging*#
 - [ ] [red yellow-background]#*Strategy Selection*#
-- [ ] [red yellow-background]#*Group Waypoints*#Estimation*#
+- [ ] [red yellow-background]#*Group Waypoints Estimation*#
 ====
 
 
 === BioSLAM
 
 image::doc/images/BioSLAM.png["System", width=800px]
+
+We present BioSLAM, a lifelong SLAM framework for learning various new appearances incrementally and maintaining accurate place recognition for previously visited areas.Unlike humans, artificial neural networks suffer from catastrophic forgetting and may forget the previously visited areas when trained with new arrivals. For humans, researchers discover that there exists a memory replay mechanism in the brain to keep the neuron active for previous events. Inspired by this discovery, BioSLAM designs a gated generative replay to control the robot's learning behavior based on the feedback rewards.Specifically, BioSLAM provides a novel dual-memory mechanism for maintenance: 1) a dynamic memory to efficiently learn new observations and 2) a static memory to balance new-old knowledge. When combined with a visual-/LiDAR- based SLAM system, the complete processing pipeline can help the agent incrementally update the place recognition ability, robust to the increasing complexity of long-term place recognition.
+
+.API: [white blue-background]#*Input*# and [white red-background]#*Output*#
+[NOTE]
+====
+[options="interactive"]
+- [white blue-background]#*Dual Memory Assistance*#
+- [white blue-background]#*Long-short Memorization*#
+- [white red-background]#*Regular Updated Models*#
+====
+
+.TODO List
+[NOTE]
+====
+[options="interactive"]
+- [ ] [red yellow-background]#*Online Feature Updating*#
+- [ ] [red yellow-background]#*Strategy Selection*#
+- [ ] [red yellow-background]#*Group Waypoints Estimation*#
+====
 
 == Multi-Agent Localization
 
