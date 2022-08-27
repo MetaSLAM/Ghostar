@@ -1,9 +1,0 @@
-[submodule "stack/AutoMerge"]
-	path = stack/AutoMerge
-	url = https://github.com/MetaSLAM/AutoMerge
-[submodule "stack/Multi-Agent-Simulation"]
-	path = stack/Multi-Agent-Simulation
-	url = https://github.com/MetaSLAM/Multi-Agent-Simulation
-[submodule "stack/MrExplorer"]
-	path = stack/MrExplorer
-	url = https://github.com/MetaSLAM/MrExplorer
