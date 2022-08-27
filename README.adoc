@@ -125,6 +125,70 @@ This will enable the `metaslam/automerge` docker image, within which we already 
 The `tmux_run.sh` will automatically trigger `online_detector.py` and `online_merging.py`.
 Note, we also need to trigger `online_visualizer.py` for online visualization (in progress).
 
+=== Run Simulation Client
+Our simulation client is at:
+https://github.com/MetaSLAM/Multi-Agent-Simulation.git
+
+[source, bash]
+----
+cd Multi-Agent-Simulation
+catkin_make
+source devel/setup.bash
+roslaunch vehicle_simulator system_campus.launch
+----
+
+We have to define the name of the client in launch file at the current stage.
+
+TODO: Integrate this into config file
+
+=== Multi-agent Communication
+
+We use Fkie multi-master communication system for data transfer between agents.
+https://github.com/fkie/multimaster_fkie.git
+
+
+[source, bash]
+----
+cd catkin_ws/src
+git clone https://github.com/fkie/multimaster_fkie.git multimaster
+rosdep update
+rosdep install -i --as-root pip:false --reinstall --from-paths multimaster
+source devel/setup.bash
+roslaunch fkie_multimaster_discovery master_discovery.launch
+roslaunch fkie_multimaster_sync master_sync.launch
+----
+
+TODO: Integrate this into the simulation client
+
+
+=== Run MrExplorer
+
+[source, bash]
+----
+git clone https://github.com/MetaSLAM/MrExplorer.git
+cd MrExplorer
+catkin_make
+source devel/setup.bash
+roslaunch tare_planner explore_campus.launch
+----
+
+TODO:
+1. Change the name of the project
+2. Integrate the configuration of the client into the config file
+3. Debug the global planning
+4. Integrate the multi-master into this 
+
+=== FakeMerge
+
+[source, bash]
+----
+git clone https://github.com/MetaSLAM/fakemerge.git
+cd fakemerge
+catkin_make
+source devel/setup.bash
+roslaunch fakemerge transformPose.launch
+----
+
 == Multi-Agent Localization
 
 [source,yaml]
