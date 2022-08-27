@@ -36,6 +36,30 @@ source ~/.bashrc
 ----
 Please keep in mind, *META_AUTOMERGE*, *META_EXPLORER* and *META_SIM* indicate the *PATH* env for the three key modules. In the following sections, we will investigate the details of each module.
 
+=== MrExplorer
+
+image::doc/images/MrExplorer.png["System", width=800px]
+
+Since all agents begin from unknown darkness area within an given map, each agent are starting from a local exploration policy based on its observations. And based on the *AutoMerge* module, small group agents will find their relative transformations, then such agents are grouped into one set, and the single agent exploration policy are transfermed into multi-agent exploration policy. Gradually, all the agents are converted into one group. This hierarchical strategy help crowd agents quickly understand their coopeartion status with each others, and can balance the exploration efficiency and robustness without any initial position and relative transformation information.
+
+.API: [white blue-background]#*Input*# and [white red-background]#*Output*#
+[NOTE]
+====
+[options="interactive"]
+- [white blue-background]#*Odometry for each agent*#
+- [white blue-background]#*Grouping status from AutoMerge*#
+- [white red-background]#*Waypoints for each agent*#
+====
+
+.TODO List
+[NOTE]
+====
+[options="interactive"]
+- [ ] [red yellow-background]#*Online Submap Merging*#
+- [ ] [red yellow-background]#*Strategy Selection*#
+- [ ] [red yellow-background]#*Group Waypoints Estimation*#
+====
+
 === AutoMerge
 
 image::doc/images/AutoMerge.png["System", width=800px]
@@ -62,31 +86,6 @@ AutoMerge can provide an automatic data-association for agents without any knowl
 - [ ] [red yellow-background]#*Onine Position Estimation*#
 ====
 
-=== MrExplorer
-
-image::doc/images/MrExplorer.png["System", width=800px]
-
-Since all agents begin from unknown darkness area within an given map, each agent are starting from a local exploration policy based on its observations. And based on the *AutoMerge* module, small group agents will find their relative transformations, then such agents are grouped into one set, and the single agent exploration policy are transfermed into multi-agent exploration policy. Gradually, all the agents are converted into one group. This hierarchical strategy help crowd agents quickly understand their coopeartion status with each others, and can balance the exploration efficiency and robustness without any initial position and relative transformation information.
-
-.API: [white blue-background]#*Input*# and [white red-background]#*Output*#
-[NOTE]
-====
-[options="interactive"]
-- [white blue-background]#*Odometry for each agent*#
-- [white blue-background]#*Grouping status from AutoMerge*#
-- [white red-background]#*Waypoints for each agent*#
-====
-
-.TODO List
-[NOTE]
-====
-[options="interactive"]
-- [ ] [red yellow-background]#*Online Submap Merging*#
-- [ ] [red yellow-background]#*Strategy Selection*#
-- [ ] [red yellow-background]#*Group Waypoints Estimation*#
-====
-
-
 === BioSLAM
 
 image::doc/images/BioSLAM.png["System", width=800px]
@@ -111,6 +110,21 @@ We present BioSLAM, a lifelong SLAM framework for learning various new appearanc
 - [ ] [red yellow-background]#*Group Waypoints Estimation*#
 ====
 
+== Multi-Agent Exploration
+
+=== Start Docker
+
+[source,bash]
+----
+cd AUTOMERGE
+sh doc/bin/start_docker.sh
+sh tmux_run.sh
+----
+
+This will enable the `metaslam/automerge` docker image, within which we already enabled the LiDAR odometry and AutoMerge Server. 
+The `tmux_run.sh` will automatically trigger `online_detector.py` and `online_merging.py`.
+Note, we also need to trigger `online_visualizer.py` for online visualization (in progress).
+
 == Multi-Agent Localization
 
 [source,yaml]
@@ -126,21 +140,6 @@ python src/offline_merging.py
 ----
 
 In the current `global_rough_align` step, we will use spectral clustering method to divide agents into different groups based on their connections.
-
-== Multi-Agent Exploration
-
-=== Start Docker
-
-[source,bash]
-----
-cd AUTOMERGE
-sh doc/bin/start_docker.sh
-sh tmux_run.sh
-----
-
-This will enable the `metaslam/automerge` docker image, within which we already enabled the LiDAR odometry and AutoMerge Server. 
-The `tmux_run.sh` will automatically trigger `online_detector.py` and `online_merging.py`.
-Note, we also need to trigger `online_visualizer.py` for online visualization (in progress).
 
 === Visualization
 
