@@ -182,7 +182,7 @@ TODO:
 
 [source, bash]
 ----
-git clone https://github.com/MetaSLAM/fakemerge.git
+git clone https://github.com/MetaSLAM/fakemerge.git fakemerge
 cd fakemerge
 catkin_make
 source devel/setup.bash
