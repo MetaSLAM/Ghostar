@@ -3,7 +3,7 @@
 METASLAM=$(pwd)
 
 # Install Necessay packages
-sudo apt-get install libusb-dev python-pip screen tmux
+sudo apt-get install libusb-dev python-pip screen tmux python-rosdep
 sudo pip install catkin-tools
 sudo rosdep init
 rosdep update
