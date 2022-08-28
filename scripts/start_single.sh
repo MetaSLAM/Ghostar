@@ -2,7 +2,6 @@
 export METASLAM=$(pwd)
 
 screen -Sdm start_simulator sh $METASLAM/scripts/bin/enable_simulator.sh
-echo $METASLAM
 echo "Enable Simulator"
 sleep 1
 
