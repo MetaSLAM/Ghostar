@@ -12,6 +12,7 @@ screen -Sdm start_ms_sync sh $METASLAM/scripts/bin/enable_master_sync.sh
 echo "Enable Master Sync"
 sleep 1
 
+
 screen -Sdm start_mr_explorer sh $METASLAM/scripts/bin/enable_explorer.sh
 echo "Enable Mr Explorer"
 sleep 1
