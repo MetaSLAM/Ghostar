@@ -27,5 +27,5 @@ echo "export ROS_IP='172.26.169.231'" >> ~/.bashrc
 echo "export ROS_MASTER_URI=http://172.26.169.231:11311" >> ~/.bashrc
 echo "METASLAM=$METASLAM" >> ~/.bashrc
 echo "alias cdw='cd $METASLAM'" >> ~/.bashrc
-echo "export playsingle=$METASLAM/scripts/start_single.sh" >> ~/.bashrc
-echo "export killplayer=$METASLAM/scripts/killall.sh" >> ~/.bashrc
+echo "alias enclient='sh $METASLAM/scripts/start_single.sh'" >> ~/.bashrc
+echo "alias killmeta='pkill screen'" >> ~/.bashrc
