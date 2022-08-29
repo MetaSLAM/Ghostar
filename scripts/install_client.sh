@@ -22,9 +22,13 @@ sh download_environments.sh
 
 cd $METASLAM/stack
 catkin build -j 8
+
 echo "source $METASLAM/stack/devel/setup.bash" >> ~/.bashrc
+
+# Need to modify based on multi-agent
 echo "export ROS_IP='172.26.169.231'" >> ~/.bashrc
 echo "export ROS_MASTER_URI=http://172.26.169.231:11311" >> ~/.bashrc
+
 echo "METASLAM=$METASLAM" >> ~/.bashrc
 echo "alias cdw='cd $METASLAM'" >> ~/.bashrc
 echo "alias enclient='sh $METASLAM/scripts/start_single.sh'" >> ~/.bashrc
