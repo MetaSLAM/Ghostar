@@ -3,10 +3,8 @@
 METASLAM=$(pwd)
 
 # Install Necessay packages
-sudo apt-get install libusb-dev python-pip screen tmux python-rosdep
+sudo apt-get install libusb-dev python-pip screen tmux
 sudo pip install catkin-tools
-# sudo rosdep init
-# rosdep update
 
 # Get All
 git clone https://github.com/MetaSLAM/Multi-Agent-Simulation.git   $METASLAM/stack/src/simulation
